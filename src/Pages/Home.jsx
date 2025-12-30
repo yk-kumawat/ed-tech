@@ -16,7 +16,7 @@ const Home = () => {
         <div className="w-100">
           <p className="font-bold text-sm ml-1">Restricted by opportunities?</p>
           <h1 className="text-[#184F5B] font-bold leading-12 text-[2.5em] mb-4 mt-1">
-            Update 2 Get the tech career you deserve. Faster.
+            Get the tech career you deserve. Faster.
           </h1>
           <div className="flex flex-col gap-2">
             <p>
