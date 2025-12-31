@@ -2,7 +2,7 @@ import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 
-const Header = () => {
+const Header = ({ user }) => {
   return (
     <div className="flex justify-between items-center px-8 text-white w-full h-16 bg-[#184F5B]">
       <div className="flex">
@@ -22,13 +22,17 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="font-bold flex gap-4 items-center">
-        <FiShoppingCart className="mr-4" />
-        <button className="h-7 w-21 border border-[#F9C518] bg-[#F9C518]/20 rounded-sm">
-          Login
-        </button>
-        <button className="h-7 w-21 bg-[#F9C518] rounded-sm">Sign up</button>
-      </div>
+      {(user == true) ? (
+        <p>User</p>
+      ) : (
+        <div className="font-bold flex gap-4 items-center">
+          <FiShoppingCart className="mr-4" />
+          <button className="h-7 w-21 border border-[#F9C518] bg-[#F9C518]/20 rounded-sm">
+            Login
+          </button>
+          <button className="h-7 w-21 bg-[#F9C518] rounded-sm">Sign up</button>
+        </div>
+      )}
     </div>
   );
 };

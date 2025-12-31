@@ -9,7 +9,7 @@ import LadderHome from "../Components/LadderHome";
 const Home = () => {
   return (
     <div>
-      <Header />
+      <Header user={false}/>
 
       {/* Hero Section */}
       <div className="flex justify-evenly items-center h-150 w-full bg-[#D1E4CF]">
