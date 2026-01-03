@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom'
 import { FaSearch } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 
 const Header = ({ user }) => {
+  const navigate = useNavigate();
   return (
     <div className="flex justify-between items-center px-8 text-white w-full h-16 bg-[#184F5B]">
       <div className="flex">
@@ -27,10 +29,10 @@ const Header = ({ user }) => {
       ) : (
         <div className="font-bold flex gap-4 items-center">
           <FiShoppingCart className="mr-4" />
-          <button className="h-7 w-21 border border-[#F9C518] bg-[#F9C518]/20 rounded-sm">
+          <button onClick={() => {navigate('/login')}} className="h-7 w-21 border border-[#F9C518] bg-[#F9C518]/20 rounded-sm cursor-pointer">
             Login
           </button>
-          <button className="h-7 w-21 bg-[#F9C518] rounded-sm">Sign up</button>
+          <button onClick={() => {navigate('/signup')}} className="h-7 w-21 bg-[#F9C518] rounded-sm cursor-pointer">Sign up</button>
         </div>
       )}
     </div>
