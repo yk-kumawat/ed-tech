@@ -9,10 +9,15 @@ const Dashboard = () => {
       <Header user={true} />
       <div className="flex justify-between">
         <Sidebar />
-        <div>
+        <div className="flex flex-col gap-6 py-10">
           <div className="flex gap-8">
             <div className="flex flex-col gap-4">
-              <div className="h-40 w-100 px-6 py-3 flex flex-col justify-between rounded-lg bg-[#F3F2F2]">
+              <div className="relative h-40 w-100 px-6 py-3 flex flex-col justify-between rounded-lg bg-[#F3F2F2]">
+                <div className="absolute w-22 h-22 top-5 right-5 rounded-full bg-[conic-gradient(green_0%_65%,#bfdbfe_65%_100%)] flex items-center justify-center">
+                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+                    <span className="text-xl font-bold text-blue-700">65%</span>
+                  </div>
+                </div>
                 <p className="text-[#606060]">Continue Learning</p>
                 <div>
                   <h3 className="text-xl font-bold">UI / UX</h3>
@@ -64,7 +69,9 @@ const Dashboard = () => {
                     </p>
                   </div>
                 </div>
-                <button className="text-[#D0793E] text-xs font-semibold self-end cursor-pointer">View All</button>
+                <button className="text-[#D0793E] text-xs font-semibold self-end cursor-pointer">
+                  View All
+                </button>
               </div>
             </div>
             <div className="h-89 w-100 px-6 py-3 flex flex-col justify-between rounded-lg bg-[#F3F2F2]">
@@ -110,10 +117,12 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
-              <button className="text-[#D0793E] text-xs font-semibold self-end cursor-pointer">View All</button>
+              <button className="text-[#D0793E] text-xs font-semibold self-end cursor-pointer">
+                View All
+              </button>
             </div>
           </div>
-          <div></div>
+          <div className="w-208 h-50 bg-[#F3F2F2]"></div>
         </div>
         <RightSidebar />
       </div>

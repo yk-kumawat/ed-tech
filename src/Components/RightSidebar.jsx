@@ -86,7 +86,7 @@ const RightSidebar = () => {
         <div className="flex flex-col gap-4">
           <div className="px-2 flex flex-col gap-1">
             <div className="flex justify-between text-sm">
-              <p>UI/UX</p>
+              <p className="font-semibold">UI/UX</p>
               <p className="text-[#0A2478] font-semibold">90%</p>
             </div>
             <div className="w-full h-1 rounded-full bg-[#D9D9D9]">
@@ -95,7 +95,7 @@ const RightSidebar = () => {
           </div>
           <div className="px-2 flex flex-col gap-1">
             <div className="flex justify-between text-sm">
-              <p>JavaScript</p>
+              <p className="font-semibold">JavaScript</p>
               <p className="text-[#0A2478] font-semibold">85%</p>
             </div>
             <div className="w-full h-1 rounded-full bg-[#D9D9D9]">
@@ -104,7 +104,7 @@ const RightSidebar = () => {
           </div>
           <div className="px-2 flex flex-col gap-1">
             <div className="flex justify-between text-sm">
-              <p>HTML</p>
+              <p className="font-semibold">HTML</p>
               <p className="text-[#0A2478] font-semibold">70%</p>
             </div>
             <div className="w-full h-1 rounded-full bg-[#D9D9D9]">
@@ -113,7 +113,7 @@ const RightSidebar = () => {
           </div>
           <div className="px-2 flex flex-col gap-1">
             <div className="flex justify-between text-sm">
-              <p>CSS</p>
+              <p className="font-semibold">CSS</p>
               <p className="text-[#0A2478] font-semibold">100%</p>
             </div>
             <div className="w-full h-1 rounded-full bg-[#D9D9D9]">

@@ -1,5 +1,4 @@
 import React from "react";
-import CardIMG from "../assets/CardIMG.png";
 import ExImg from "../assets/ExImg.webp";
 import { AiFillSafetyCertificate } from "react-icons/ai";
 import { RiGeminiFill } from "react-icons/ri";
