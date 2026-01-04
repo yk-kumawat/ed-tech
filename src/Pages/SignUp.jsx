@@ -13,9 +13,6 @@ const SignUp = () => {
             <h2 className="text-3xl font-bold text-[#1E4D5F] mb-4">
               Start your learning journey today.
             </h2>
-            <p className="text-[#1E4D5F]/80 text-lg mb-6">
-              Join over 1.5 Lac+ learners mastering new tech skills.
-            </p>
 
             <ul className="space-y-3 text-[#1E4D5F]/90">
               <li className="flex items-center gap-2">
@@ -37,7 +34,7 @@ const SignUp = () => {
             <img
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3QTDc5t9Rd40JVSiwUyrCOEL316kGleY6myCD6GUEdUKHYOKh1FQ_MNFB0HRyt75jyyCgEJKUEYglj9I5NBavcOs-sBir7Zyz1_5fhFd2SEJzNQWenVIBV3rlLdguIi4z_cnw4VNLARCk7XeZQtO0pXrMxF8_5OTCBobBHIbaV88waWTb2jrgxP-EDM_juP2zq42js5f4lmx-L43yOPcsv0o3jL1fatprNiGnLebJoDiShObFkR2yztqzgMu-_tNzZal576BVBQ1n"
               alt="Student illustration"
-              className="w-full max-w-xs object-contain"
+              className="w-full max-w-sm object-contain"
             />
           </div>
         </div>

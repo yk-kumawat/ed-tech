@@ -8,17 +8,17 @@ import LadderHome from "../Components/LadderHome";
 
 const Home = () => {
   return (
-    <div>
+    <div className="h-screen overflow-y-auto no-scrollbar">
       <Header user={false}/>
 
       {/* Hero Section */}
-      <div className="flex justify-evenly items-center h-150 w-full bg-[#D1E4CF]">
+      <div className="md:flex-row flex flex-col justify-evenly items-center h-150 w-full bg-[#D1E4CF]">
         <div className="w-100">
           <p className="font-bold text-sm ml-1">Restricted by opportunities?</p>
-          <h1 className="text-[#184F5B] font-bold leading-12 text-[2.5em] mb-4 mt-1">
+          <h1 className="text-[#184F5B] font-bold lg:leading-12 leading-10 lg:text-[2.5em] text-[1.8em] mb-4 mt-1">
             Get the tech career you deserve. Faster.
           </h1>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 lg:text-[1em] text-sm">
             <p>
               <span className="font-bold">128% average hike</span> via our
               placement cell
@@ -34,7 +34,7 @@ const Home = () => {
           </div>
         </div>
         <div>
-          <img src={HeroIMG} alt="" />
+          <img className="lg:h-100 md:h-70 h-60" src={HeroIMG} alt="" />
         </div>
       </div>
 
