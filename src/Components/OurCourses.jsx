@@ -18,7 +18,7 @@ const OurCourses = () => {
      ${active === name ? "text-black border-black" : " border-[#C4C4C4]"}`;
 
   return (
-    <div className="h-screen w-screen flex flex-col items-center">
+    <div className="h-194 max-w-screen flex flex-col items-center">
       <h1 className="text-[#C4C4C4] font-bold sm:text-[3em] text-[2.2em] my-5">
         OUR COURSES
       </h1>
@@ -57,9 +57,9 @@ const OurCourses = () => {
         <div className="border-t border-[#C4C4C4]"></div>
 
         {/* Cards Section */}
-        <div className="relative w-full max-w-screen">
+        <div className="relative w-full">
           {active === "All" && (
-            <div className="absolute top-0 left-0 w-260 max-w-screen flex gap-5 overflow-x-scroll no-scrollbar">
+            <div className="absolute top-0 left-0 w-260 max-w-full flex gap-5 overflow-x-scroll no-scrollbar">
               <CourseCard data={cardData} />
               <CourseCard data={cardData} />
               <CourseCard data={cardData} />

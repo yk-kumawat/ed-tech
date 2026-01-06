@@ -8,7 +8,7 @@ import { FaAngleDoubleUp } from "react-icons/fa";
 const WhyUs = () => {
   return (
     <div
-        className="xs:h-screen h-[95%] bg-[#15181a] flex flex-col"
+        className="h-194 bg-[#15181a] flex flex-col justify-evenly"
         style={{
           backgroundImage: `
             linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),

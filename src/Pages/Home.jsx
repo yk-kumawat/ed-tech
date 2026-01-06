@@ -5,6 +5,7 @@ import OurCourses from "../Components/OurCourses";
 import WhyUs from "../Components/WhyUs";
 import ProfileHighlights from "../Components/ProfileHighlights";
 import LadderHome from "../Components/LadderHome";
+import Footer from "../Components/Footer";
 
 const Home = () => {
   return (
@@ -13,7 +14,7 @@ const Home = () => {
 
       {/* Hero Section */}
       <div className="md:flex-row flex flex-col justify-evenly items-center h-150 w-full bg-[#D1E4CF]">
-        <div className="w-100">
+        <div className="w-100 max-w-screen xs:p-0 p-5">
           <p className="font-bold text-sm ml-1">Restricted by opportunities?</p>
           <h1 className="text-[#184F5B] font-bold lg:leading-12 leading-10 lg:text-[2.5em] text-[1.8em] mb-4 mt-1">
             Get the tech career you deserve. Faster.
@@ -45,6 +46,8 @@ const Home = () => {
       <ProfileHighlights/>
 
       <LadderHome/>
+
+      <Footer/>
 
     </div>
   );
