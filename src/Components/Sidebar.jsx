@@ -1,131 +1,68 @@
-import { Link, useLocation } from "react-router-dom";
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-import { MdDashboard } from "react-icons/md";
-import { FaLightbulb, FaBookmark, FaGraduationCap } from "react-icons/fa";
-import { PiPath } from "react-icons/pi";
-import { TbFileCertificate } from "react-icons/tb";
-import { FaFilePen, FaPuzzlePiece, FaListCheck } from "react-icons/fa6";
-import { IoMdSettings } from "react-icons/io";
-import { BiLogOut } from "react-icons/bi";
+const SidebarSection = ({ title, children }) => (
+  <div className="px-4">
+    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 px-2">
+      {title}
+    </p>
+    <nav className="space-y-1 text-slate-600">
+      {children}
+    </nav>
+  </div>
+);
 
-const Sidebar = () => {
+const SidebarLink = ({ icon, label, to = "#", isDanger = false }) => {
   const location = useLocation();
+  const isActive = location.pathname === to;
 
-  const sections = [
-    {
-      title: "Overview",
-      links: [
-        {
-          path: "/dashboard",
-          label: "Dashboard",
-          icon: <MdDashboard size={20} />,
-        },
-      ],
-    },
-    {
-      title: "Learn",
-      links: [
-        {
-          path: "/tutorials",
-          label: "Tutorials",
-          icon: <FaLightbulb size={18} />,
-        },
-        {
-          path: "/bookmarks",
-          label: "Bookmarks",
-          icon: <FaBookmark size={17} />,
-        },
-        {
-          path: "/learning-paths",
-          label: "Learning Paths",
-          icon: <PiPath size={19} />,
-        },
-      ],
-    },
-    {
-      title: "Grow",
-      links: [
-        {
-          path: "/courses",
-          label: "Courses",
-          icon: <FaGraduationCap size={20} />,
-        },
-        {
-          path: "/certificates",
-          label: "Certificates",
-          icon: <TbFileCertificate size={20} />,
-        },
-      ],
-    },
-    {
-      title: "Practice",
-      links: [
-        {
-          path: "/practice-tests",
-          label: "Practice Tests",
-          icon: <FaFilePen size={18} />,
-        },
-        {
-          path: "/challenges",
-          label: "Challenges",
-          icon: <FaPuzzlePiece size={18} />,
-        },
-        {
-          path: "/interview-prep",
-          label: "Interview Prep",
-          icon: <FaListCheck size={18} />,
-        },
-      ],
-    },
-  ];
-
-  const linkClass = (path) =>
-    `flex items-center w-fit gap-2 text-sm px-2 rounded cursor-pointer
-     ${
-       location.pathname === path
-         ? "text-[#0A2478] font-semibold"
-         : "text-[#878787]"
-     }`;
+  const activeClasses = "bg-[#114b51]/10 border-left-4 border-[#114b51] text-[#114b51] font-semibold";
+  const dangerClasses = "hover:bg-red-50 text-red-600";
+  const standardClasses = "hover:bg-slate-100";
 
   return (
-    <div className="h-178 bg-[#F3F2F2] w-55 flex flex-col justify-between p-8">
-      {/* TOP */}
-      <div className="flex flex-col gap-6">
-        {sections.map((section) => (
-          <div key={section.title} className="flex flex-col gap-2">
-            <p className="font-bold">{section.title}</p>
-
-            {section.links.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={linkClass(link.path)}
-              >
-                <span>{link.icon}</span>
-                <span className={
-                  location.pathname === link.path
-                  ? 'text-[#0A2478]'
-                  : 'text-black'
-                }>{link.label}</span>
-              </Link>
-            ))}
-          </div>
-        ))}
-      </div>
-
-      {/* BOTTOM */}
-      <div className="text-[#0A2478] flex flex-col gap-2 font-bold">
-        <div className="flex w-fit gap-2 items-center cursor-pointer">
-          <IoMdSettings size={20} />
-          <p>Settings</p>
-        </div>
-        <div className="flex w-fit gap-2 items-center cursor-pointer">
-          <BiLogOut size={20} />
-          <p>Logout</p>
-        </div>
-      </div>
-    </div>
+    <Link 
+      to={to} 
+      className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${isActive ? activeClasses : isDanger ? dangerClasses : standardClasses}`}
+    >
+      <span className="material-icons-outlined text-xl">{icon}</span>
+      {label}
+    </Link>
   );
 };
 
-export default Sidebar;
+const SideBar = () => {
+  return (
+    <aside className="w-60 bg-white border-r border-slate-200 flex flex-col justify-between py-6 sticky top-16 h-[calc(100vh-4rem)]">
+      <div className="space-y-6">
+        <SidebarSection title="Overview">
+          <SidebarLink icon="dashboard" label="Dashboard" to="/dashboard" />
+        </SidebarSection>
+
+        <SidebarSection title="Learn">
+          <SidebarLink icon="lightbulb" label="Tutorials" />
+          <SidebarLink icon="bookmark_border" label="Bookmarks" />
+          <SidebarLink icon="route" label="Learning Paths" />
+        </SidebarSection>
+
+        <SidebarSection title="Grow">
+          <SidebarLink icon="school" label="Courses" to="/courses" />
+          <SidebarLink icon="card_membership" label="Certificates" />
+        </SidebarSection>
+
+        <SidebarSection title="Practice">
+          <SidebarLink icon="assignment" label="Practice Tests" />
+          <SidebarLink icon="extension" label="Challenges" />
+          <SidebarLink icon="laptop_mac" label="Interview Prep" />
+        </SidebarSection>
+      </div>
+
+      <div className="px-4 mt-auto border-t border-slate-200 pt-6 space-y-1">
+        <SidebarLink icon="settings" label="Settings" />
+        <SidebarLink icon="logout" label="Logout" isDanger />
+      </div>
+    </aside>
+  );
+};
+
+export default SideBar;

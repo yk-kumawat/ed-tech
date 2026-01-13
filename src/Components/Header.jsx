@@ -1,48 +1,38 @@
-import React from "react";
-import { useNavigate } from 'react-router-dom'
-import { FaSearch } from "react-icons/fa";
-import { FiShoppingCart } from "react-icons/fi";
-import { FaBars } from "react-icons/fa6";
+import React from 'react';
 
-const Header = ({ user }) => {
-  const navigate = useNavigate();
+const Header = () => {
   return (
-    <div className="flex justify-between items-center px-8 text-white w-screen h-16 bg-[#184F5B]">
-      <div className="flex">
-        <div className="text-2xl font-bold mr-15">EdTech</div>
-        <div className="flex items-center gap-4">
-          <div className="text-sm lg:block hidden">Explore</div>
-          <div className="md:block relative text-[#BCBCBC] hidden">
-            <input
-              className="bg-white rounded-2xl h-7 w-97 p-2 pl-10 text-sm font-semibold outline-none"
-              type="text"
-              placeholder="Search for anything"
-            />
-            <FaSearch className="absolute top-1/4 left-4" />
-          </div>
-          <div className="justify-center items-center bg-[#F9C518] h-7 w-31 rounded-2xl lg:flex hidden">
-            <span className="font-bold">new Offer</span>
+    <header className="bg-[#114b51] h-16 flex items-center justify-between px-6 sticky top-0 z-50">
+      <div className="flex items-center gap-8">
+        <h1 className="text-white text-2xl font-bold tracking-tight">EdTech</h1>
+        <nav className="hidden md:flex gap-6">
+          <a className="text-teal-50 hover:text-white transition-colors font-medium" href="#">Explore</a>
+        </nav>
+      </div>
+      
+      <div className="flex-1 max-w-xl px-8 hidden sm:block">
+        <div className="relative">
+          <span className="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-teal-200">search</span>
+          <input 
+            className="w-full bg-teal-800/40 border-none rounded-full py-2 pl-10 pr-4 text-white placeholder-teal-300 focus:ring-2 focus:ring-[#fbbf24] transition-all" 
+            placeholder="Search for anything" 
+            type="text"
+          />
+        </div>
+      </div>
+
+      <div className="flex items-center gap-4">
+        <button className="bg-[#fbbf24] hover:bg-yellow-500 text-[#114b51] font-bold py-1.5 px-4 rounded-full text-sm transition-transform active:scale-95">
+          new Offer
+        </button>
+        <div className="flex items-center gap-2 cursor-pointer group">
+          <span className="text-white text-sm font-medium hidden sm:inline">User Name</span>
+          <div className="w-8 h-8 rounded-full bg-teal-200 flex items-center justify-center text-[#114b51] font-bold">
+            UN
           </div>
         </div>
       </div>
-      {(user == true) ? (
-        <p>User</p>
-      ) : (
-        <div>
-          <div className="font-bold md:flex hidden gap-4 items-center">
-            <FiShoppingCart className="mr-4 lg:block hidden" />
-            <button onClick={() => {navigate('/login')}} className="h-7 w-21 border border-[#F9C518] bg-[#F9C518]/20 rounded-sm cursor-pointer">
-              Login
-            </button>
-            <button onClick={() => {navigate('/signup')}} className="h-7 w-21 bg-[#F9C518] rounded-sm cursor-pointer">Sign up</button>
-          </div>
-          <div className="cursor-pointer md:hidden flex items-center gap-6">
-            <FaSearch size={17} />
-            <FaBars size={20}/>
-          </div>
-        </div>
-      )}
-    </div>
+    </header>
   );
 };
 
