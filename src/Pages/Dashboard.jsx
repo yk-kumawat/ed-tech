@@ -5,14 +5,14 @@ import RightSidebar from "../Components/RightSidebar";
 
 const Dashboard = () => {
   return (
-    <div className="">
+    <div className="bg-white">
       <Header user={true} />
       <div className="flex justify-between">
         <Sidebar />
         <div className="flex flex-col gap-6 py-10">
           <div className="flex gap-8">
             <div className="flex flex-col gap-4">
-              <div className="relative h-40 w-100 px-6 py-3 flex flex-col justify-between rounded-lg bg-[#F3F2F2]">
+              <div className="relative h-40 w-100 px-6 py-3 flex flex-col justify-between rounded-lg bg-slate-100">
                 <div className="absolute w-22 h-22 top-5 right-5 rounded-full bg-[conic-gradient(green_0%_65%,#bfdbfe_65%_100%)] flex items-center justify-center">
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
                     <span className="text-xl font-bold text-blue-700">65%</span>
@@ -32,7 +32,7 @@ const Dashboard = () => {
                   </p>
                 </div>
               </div>
-              <div className="h-45 w-100 px-6 py-3 flex flex-col justify-between rounded-lg bg-[#F3F2F2]">
+              <div className="relative h-41 w-100 px-6 py-4 flex flex-col justify-between rounded-lg bg-slate-100">
                 <p className="text-[#606060]">Upcoming Deadlines</p>
                 <div className="flex flex-col gap-2">
                   <div className="flex gap-2">
@@ -69,14 +69,13 @@ const Dashboard = () => {
                     </p>
                   </div>
                 </div>
-                <button className="text-[#D0793E] text-xs font-semibold self-end cursor-pointer">
+                <button className="absolute bottom-3 right-4 text-[#D0793E] text-xs font-semibold self-end cursor-pointer">
                   View All
                 </button>
               </div>
             </div>
-            <div className="h-89 w-100 px-6 py-3 flex flex-col justify-between rounded-lg bg-[#F3F2F2]">
+            <div className="h-85 w-100 px-6 py-3 flex flex-col justify-between rounded-lg bg-slate-100">
               <p className="text-[#606060]">Recent Activity</p>
-              <div className="bg-white p-4 rounded-lg h-65 flex flex-col justify-between">
                 <div className="flex flex-col gap-1">
                   <div className="flex justify-between">
                     <p className="font-semibold">Color Combinations</p>
@@ -115,14 +114,13 @@ const Dashboard = () => {
                   <div className="w-full h-1 rounded-full bg-[#D9D9D9]">
                     <div className="w-[85%] h-full bg-[#875ABD] rounded-full"></div>
                   </div>
-                </div>
               </div>
               <button className="text-[#D0793E] text-xs font-semibold self-end cursor-pointer">
                 View All
               </button>
             </div>
           </div>
-          <div className="w-208 h-50 bg-[#F3F2F2]"></div>
+          <div className="w-208 h-50 bg-slate-100"></div>
         </div>
         <RightSidebar />
       </div>

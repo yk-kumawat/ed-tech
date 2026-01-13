@@ -25,7 +25,7 @@ const Courses = () => {
         <div className="flex-1 flex flex-col h-full items-center overflow-y-scroll no-scrollbar">
           <div className="flex flex-col gap-4 mt-8">
             <h1 className="text-2xl font-semibold">Courses</h1>
-            <div className="h-60 w-230 bg-[#F3F2F2] rounded-lg py-3 px-5">
+            <div className="h-60 w-230 bg-slate-100 rounded-lg py-3 px-5">
               <div className="flex justify-between">
                 <h3 className="text-[#606060]">New Courses</h3>
                 <button className="text-[#D0793E] text-xs font-semibold cursor-pointer">

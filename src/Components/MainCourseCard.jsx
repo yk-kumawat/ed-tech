@@ -13,7 +13,7 @@ const MainCourseCard = ({ data }) => {
         </p>
         <p className="text-sm text-[#606060] font-semibold leading-0">Quiz - {data?.quiz} & Assignments - {data?.assignments}</p>
         <div className="h-2 w-65 bg-[#D9D9D9] rounded-full mt-2">
-            <div className={`h-2 w-[${data?.percent}%] bg-[#6085F6] rounded-full`}></div>
+            <div className="h-2 bg-[#6085F6] rounded-full" style={{ width: `${data?.percent}%` }}></div>
         </div>
       </div>
     </div>

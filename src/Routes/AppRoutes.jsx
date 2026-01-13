@@ -5,6 +5,7 @@ import Dashboard from '../Pages/Dashboard';
 import Courses from '../Pages/Courses';
 import Login from '../Pages/Login';
 import SignUp from '../Pages/SignUp';
+import LearningPath from '../Pages/LearningPath';
 
 const AppRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const AppRoutes = () => {
       <Route path="/courses" element={<Courses />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/learning-path" element={<LearningPath />} />
     </Routes>
   )
 }
