@@ -41,7 +41,7 @@ const SideBar = () => {
 
         <SidebarSection title="Learn">
           <SidebarLink icon="lightbulb" label="Tutorials" />
-          <SidebarLink icon="bookmark_border" label="Bookmarks" />
+          <SidebarLink icon="bookmark_border" label="Bookmarks" to='/bookmarks'/>
           <SidebarLink icon="route" label="Learning Paths" to='/learning-path' />
         </SidebarSection>
 

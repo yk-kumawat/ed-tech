@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="bg-[#114b51] h-16 flex items-center justify-between px-6 sticky top-0 z-50">
+    <header className="bg-[#114b51] h-16 flex items-center justify-between px-6 top-0 z-50">
       <div className="flex items-center gap-8">
         <h1 className="text-white text-2xl font-bold tracking-tight">EdTech</h1>
         <nav className="hidden md:flex gap-6">

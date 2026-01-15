@@ -6,6 +6,7 @@ import Courses from '../Pages/Courses';
 import Login from '../Pages/Login';
 import SignUp from '../Pages/SignUp';
 import LearningPath from '../Pages/LearningPath';
+import Bookmarks from '../Pages/Bookmarks';
 
 const AppRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const AppRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/learning-path" element={<LearningPath />} />
+      <Route path="/bookmarks" element={<Bookmarks />} />
     </Routes>
   )
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { FaRegBookmark } from "react-icons/fa";
 
 const MainCourseCard = ({ data }) => {
   return (
@@ -7,6 +8,7 @@ const MainCourseCard = ({ data }) => {
         <img className="h-16" src={data?.img} alt="" />
       </div>
       <div className="relative flex flex-col gap-3 mt-2">
+        <div className="absolute right-1 bottom-9 cursor-pointer"><FaRegBookmark size={18}/></div>
         <p className="absolute right-0 bottom-2 text-sm text-[#0a2478] font-semibold">{data?.percent}%</p>
         <p className="text-[#0a2478] text-lg font-semibold leading-0">
           {data?.title} - <span className="text-sm text-[#606060]">Lessons {data?.lessons}</span>
