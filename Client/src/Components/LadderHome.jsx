@@ -16,7 +16,7 @@ const LadderHome = () => {
         <div className="border-l border-dashed border-[#ffc147] max-w-[80%] h-auto">
           {/* Section 1 */}
           <div className="text-[#2c2c2c] h-130 flex flex-col justify-evenly py-15 md:pl-15 pl-10">
-            <p className="relative text-white text-sm">
+            <div className="relative text-white text-sm">
               Always available when you get stuck
               <div className="absolute -top-2 md:-left-19 -left-14.5 h-8 w-8 bg-white rounded-sm flex justify-center items-center">
                 <div className="relative">
@@ -27,7 +27,7 @@ const LadderHome = () => {
                   />
                 </div>
               </div>
-            </p>
+            </div>
             <h2 className="text-[#ffc147] lg:text-5xl md:text-4xl sm:text-3xl text-2xl font-bold">
               Resolve doubts any time through chat,
               <br />
@@ -44,15 +44,14 @@ const LadderHome = () => {
           {/* Section 2 */}
           <div className="min-h-130 flex flex-col gap-5 py-15 md:pl-15 pl-10">
             <div className="flex flex-col gap-3">
-              <p className="relative font-bold text-lg">
-                1:1 Mentorship sessions
-                <div className="absolute -top-2 md:-left-19 -left-14.5 h-9 w-9 bg-[#ffede8] rounded-sm flex justify-center items-center">
-                  <div className="absolute">
-                    <FaUserGroup className="text-[#f66c3b]" size={20} />
-                  </div>
-                </div>
-              </p>
-              <p className="text-gray-600">
+                          <div className="relative font-bold text-lg">
+                            1:1 Mentorship sessions
+                            <div className="absolute -top-2 md:-left-19 -left-14.5 h-9 w-9 bg-[#ffede8] rounded-sm flex justify-center items-center">
+                              <div className="absolute">
+                                <FaUserGroup className="text-[#f66c3b]" size={20} />
+                              </div>
+                            </div>
+                          </div>              <p className="text-gray-600">
                 Personalised guidance to prepare you for your interview needs
               </p>
             </div>
@@ -103,14 +102,14 @@ const LadderHome = () => {
           </div>
           {/* Section 3 */}
           <div className="h-auto flex flex-col gap-5 py-15 md:pl-15 pl-10">
-            <p className="relative font-semibold text-lg">
+            <div className="relative font-semibold text-lg">
               Your one stop destination to code, create & connect
               <div className="absolute -top-2 md:-left-19 -left-14.5 h-9 w-9 bg-[#ffede8] rounded-sm flex justify-center items-center">
                 <div className="absolute">
                   <FaStar className="" size={20} />
                 </div>
               </div>
-            </p>
+            </div>
             <div className="border-2 border-gray-300 rounded-2xl h-auto max-w-150 p-3">
               <div className="bg-[#ffe7e0] h-full w-full rounded-2xl px-6 py-10 flex flex-col gap-8">
                 <div className="h-10 w-10 rounded-xl bg-white text-[#f66c3b] flex justify-center items-center">

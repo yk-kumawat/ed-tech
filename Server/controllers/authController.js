@@ -22,6 +22,7 @@ export const register = async (req, res) => {
       username,
       email,
       password: hashedPassword,
+      role: 'user', // Assign a default role
     });
 
     await newUser.save();
@@ -49,12 +50,34 @@ export const login = async (req, res) => {
     }
 
     // Generate token
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || "default_secret", {
+    const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET || "default_secret", {
       expiresIn: "1h",
     });
 
-    res.status(200).json({ result: user, token });
+    res.status(200).json({ result: { ...user._doc, role: user.role }, token });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong", error: error.message });
+  }
+};
+
+export const promoteToAdmin = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    if (user.role === 'admin') {
+      return res.status(400).json({ message: 'User is already an admin' });
+    }
+
+    user.role = 'admin';
+    await user.save();
+
+    res.status(200).json({ message: `User ${user.email} promoted to admin successfully` });
+  } catch (error) {
+    res.status(500).json({ message: 'Something went wrong', error: error.message });
   }
 };

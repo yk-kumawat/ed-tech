@@ -39,14 +39,6 @@ const Home = () => {
               unicorn startups
             </p>
           </div>
-          {user && (
-            <div 
-              className="mt-4 bg-blue-500 text-white p-2 pl-10 rounded-full w-60 flex cursor-pointer hover:bg-blue-600 transition-colors"
-              onClick={() => navigate('/dashboard')}
-            >
-              Go to Dashboard <FaLocationArrow className="self-center ml-5" />
-            </div>
-          )}
         </div>
         <div>
           <img className="lg:h-100 md:h-70 h-60" src={HeroIMG} alt="" />

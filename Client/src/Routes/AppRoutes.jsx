@@ -9,6 +9,9 @@ import LearningPath from '../Pages/LearningPath';
 import Bookmarks from '../Pages/Bookmarks';
 import PrivateRoute from '../Components/PrivateRoute';
 
+import CourseForm from '../Pages/CourseForm';
+import CoursesInventory from '../Pages/CoursesInventory';
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -16,12 +19,19 @@ const AppRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       
-      {/* Protected Routes */}
+      {/* Protected Routes for regular users */}
       <Route element={<PrivateRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/learning-path" element={<LearningPath />} />
         <Route path="/bookmarks" element={<Bookmarks />} />
+      </Route>
+
+      {/* Protected Route for Admin only */}
+      <Route element={<PrivateRoute adminOnly={true} />}>
+        <Route path="/courses-inventory" element={<CoursesInventory />} />
+        <Route path="/courses-inventory/new" element={<CourseForm />} />
+        <Route path="/courses-inventory/edit/:id" element={<CourseForm />} />
       </Route>
     </Routes>
   )

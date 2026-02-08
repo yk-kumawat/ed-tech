@@ -14,7 +14,7 @@ const ProgressItem = ({ label, percentage, color = "bg-green-500" }) => (
 );
 
 const RightSidebar = () => {
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth(); // Destructure isAdmin
   
   const userInitial = user?.username ? user.username.substring(0, 2).toUpperCase() : 'UN';
   const userName = user?.name || 'User Name';
@@ -27,7 +27,14 @@ const RightSidebar = () => {
       <div className="bg-teal-50 p-3 rounded-2xl flex items-center gap-3">
         <div className="w-10 h-10 shrink-0 rounded-xl bg-teal-500 flex items-center justify-center text-white font-bold text-base">{userInitial}</div>
         <div className="min-w-0">
-          <h4 className="font-bold text-slate-800 text-sm truncate">{userName}</h4>
+          <h4 className="font-bold text-slate-800 text-sm truncate">
+            {userName}
+            {isAdmin && ( // Display admin badge
+              <span className="bg-red-500 text-white text-[8px] font-bold px-1 py-0.5 rounded-full ml-1 align-middle">
+                Admin
+              </span>
+            )}
+          </h4>
           <a className="text-[10px] text-[#114b51] font-medium hover:underline" href="#">Open Profile</a>
         </div>
       </div>

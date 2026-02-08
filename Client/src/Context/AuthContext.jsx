@@ -36,8 +36,10 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('token');
   };
 
+  const isAdmin = user?.role === 'admin';
+
   return (
-    <AuthContext.Provider value={{ user, token, login, logout, loading }}>
+    <AuthContext.Provider value={{ user, token, isAdmin, login, logout, loading }}>
       {loaded && children} {/* Render children only after initial load */}
     </AuthContext.Provider>
   );

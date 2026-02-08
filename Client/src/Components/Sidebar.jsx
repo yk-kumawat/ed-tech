@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useAuth } from '../Context/AuthContext'; // Import useAuth
 
 const SidebarSection = ({ title, children }) => (
   <div className="px-4">
@@ -12,7 +13,8 @@ const SidebarSection = ({ title, children }) => (
   </div>
 );
 
-const SidebarLink = ({ icon, label, to = "#", isDanger = false }) => {
+// Modify SidebarLink to accept onClick prop
+const SidebarLink = ({ icon, label, to = "#", isDanger = false, onClick }) => {
   const location = useLocation();
   const isActive = location.pathname === to;
 
@@ -24,6 +26,7 @@ const SidebarLink = ({ icon, label, to = "#", isDanger = false }) => {
     <Link 
       to={to} 
       className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${isActive ? activeClasses : isDanger ? dangerClasses : standardClasses}`}
+      onClick={onClick} // Pass onClick handler to Link
     >
       <span className="material-icons-outlined text-xl">{icon}</span>
       {label}
@@ -32,6 +35,14 @@ const SidebarLink = ({ icon, label, to = "#", isDanger = false }) => {
 };
 
 const SideBar = () => {
+  const { logout } = useAuth(); // Get logout function
+  const navigate = useNavigate(); // Get navigate function
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login'); // Redirect to login page after logout
+  };
+
   return (
     <aside className="w-60 bg-white border-r border-slate-200 flex flex-col justify-between py-6 sticky top-16 h-[calc(100vh-4rem)]">
       <div className="space-y-6">
@@ -59,7 +70,7 @@ const SideBar = () => {
 
       <div className="px-4 mt-auto border-t border-slate-200 pt-6 space-y-1">
         <SidebarLink icon="settings" label="Settings" />
-        <SidebarLink icon="logout" label="Logout" isDanger />
+        <SidebarLink icon="logout" label="Logout" isDanger onClick={handleLogout} /> {/* Add onClick handler */}
       </div>
     </aside>
   );

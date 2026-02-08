@@ -30,7 +30,12 @@ const Login = () => {
 
       if (response.ok) {
         login(data.result, data.token);
-        navigate('/dashboard'); // Or navigate to '/' if preferred
+        // Conditional redirection based on user role
+        if (data.result && data.result.role === 'admin') {
+          navigate('/courses-inventory');
+        } else {
+          navigate('/dashboard');
+        }
       } else {
         setError(data.message || "Login failed");
       }
