@@ -43,7 +43,7 @@ const CourseForm = () => {
       setLoading(true);
       const fetchCourse = async () => {
         try {
-          const response = await fetch(`http://localhost:5000/api/courses/${courseId}`, {
+          const response = await fetch(`${import.meta.env.VITE_API_URL}/api/courses/${courseId}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -133,8 +133,8 @@ const CourseForm = () => {
 
     try {
       const url = isEditMode
-        ? `http://localhost:5000/api/courses/${courseId}`
-        : 'http://localhost:5000/api/courses';
+        ? `${import.meta.env.VITE_API_URL}/api/courses/${courseId}`
+        : `${import.meta.env.VITE_API_URL}/api/courses`;
       const method = isEditMode ? 'PUT' : 'POST';
 
       const response = await fetch(url, {
@@ -179,7 +179,7 @@ const CourseForm = () => {
   // Display current thumbnail or selected file preview
   const thumbnailPreview = selectedFile 
     ? URL.createObjectURL(selectedFile) 
-    : (courseData.thumbnail ? `http://localhost:5000${courseData.thumbnail}` : null);
+    : (courseData.thumbnail ? `${import.meta.env.VITE_API_URL}${courseData.thumbnail}` : null);
 
 
   return (

@@ -23,7 +23,7 @@ const CourseInventory = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch('http://localhost:5000/api/courses', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/courses`, {
         headers: {
           'Authorization': `Bearer ${token}` // Include token for authentication
         }
@@ -48,7 +48,7 @@ const CourseInventory = () => {
   const handleDelete = async (courseId) => {
     if (window.confirm('Are you sure you want to delete this course?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/courses/${courseId}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/courses/${courseId}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}` // Include token for authentication
