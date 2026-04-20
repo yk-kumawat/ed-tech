@@ -1,3 +1,4 @@
+// src\Pages\Login.jsx
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../Context/AuthContext'
@@ -32,7 +33,7 @@ const Login = () => {
         login(data.result, data.token);
         // Conditional redirection based on user role
         if (data.result && data.result.role === 'admin') {
-          navigate('/courses-inventory');
+          navigate('/admin/courses');
         } else {
           navigate('/dashboard');
         }

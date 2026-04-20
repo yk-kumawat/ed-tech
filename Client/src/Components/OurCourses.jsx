@@ -1,3 +1,4 @@
+// src\Components\OurCourses.jsx
 import React, { useState } from "react";
 import CourseCard from "./CourseCard";
 import CardIMG from "../assets/CardIMG.png";

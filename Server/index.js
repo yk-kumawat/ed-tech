@@ -1,3 +1,4 @@
+//index.js
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
@@ -6,6 +7,11 @@ import authRoutes from "./routes/authRoutes.js";
 import courseRoutes from "./routes/courseRoutes.js";
 import path from "path"; // Import path module
 import fs from "fs"; // Import fs module for file system operations
+import coursedRoutes from './routes/coursedRoutes.js'
+import sessionRoutes from './routes/sessionRoutes.js'
+import taskRoutes from './routes/taskRoutes.js'
+import enrollmentRoutes from "./routes/enrollmentRoutes.js";
+
 
 dotenv.config();
 
@@ -36,6 +42,11 @@ app.use("/api/auth", authRoutes);
 // Pass the upload middleware to courseRoutes if needed globally,
 // or apply it directly in courseRoutes for specific endpoints.
 app.use("/api/courses", courseRoutes); 
+
+app.use("/api/coursesd",coursedRoutes);
+app.use("/api/session",sessionRoutes);
+app.use("/api/task",taskRoutes);
+app.use("/api/enroll", enrollmentRoutes);
 
 // start server
 app.listen(PORT, () => {

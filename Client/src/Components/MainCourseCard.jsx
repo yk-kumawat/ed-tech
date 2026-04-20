@@ -1,3 +1,4 @@
+// src\Components\MainCourseCard.jsx
 import React from "react";
 import { FaRegBookmark } from "react-icons/fa";
 

@@ -1,3 +1,4 @@
+// src\Pages\Courses.jsx
 import React from "react";
 import JavaLogo from "../assets/JavaLogo.png";
 import MongoDBLogo from "../assets/MongoDBLogo.png";

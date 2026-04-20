@@ -1,12 +1,13 @@
+// src\Pages\CourseForm.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { 
-  ArrowLeft, 
-  Info, 
-  BookOpen, 
-  Image as ImageIcon, 
-  Trash2, 
-  PlusCircle, 
+import {
+  ArrowLeft,
+  Info,
+  BookOpen,
+  Image as ImageIcon,
+  Trash2,
+  PlusCircle,
   UploadCloud,
   Loader2
 } from 'lucide-react';
@@ -45,7 +46,7 @@ const CourseForm = () => {
         try {
           const response = await fetch(`${import.meta.env.VITE_API_URL}/api/courses/${courseId}`, {
             headers: {
-                'Authorization': `Bearer ${token}`
+              'Authorization': `Bearer ${token}`
             }
           });
           if (!response.ok) {
@@ -177,8 +178,8 @@ const CourseForm = () => {
   }
 
   // Display current thumbnail or selected file preview
-  const thumbnailPreview = selectedFile 
-    ? URL.createObjectURL(selectedFile) 
+  const thumbnailPreview = selectedFile
+    ? URL.createObjectURL(selectedFile)
     : (courseData.thumbnail ? `${import.meta.env.VITE_API_URL}${courseData.thumbnail}` : null);
 
 
@@ -190,7 +191,7 @@ const CourseForm = () => {
       <main className="flex-1 overflow-y-auto p-8 lg:p-12">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <button 
+            <button
               className="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-[#1c454e] mb-4 transition-colors"
               onClick={() => navigate('/courses-inventory')}
             >
@@ -214,20 +215,33 @@ const CourseForm = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="md:col-span-2">
                   <label className={labelStyle} htmlFor="name">Course Name</label>
-                  <input 
-                    id="name" 
-                    className={inputStyle} 
-                    placeholder="e.g. Advanced UI/UX Principles" 
+                  <select
+                    id="name"
+                    className={inputStyle}
+                    value={courseData.name}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">Select a Course</option>
+                    <option value="Design">UI/UX Designer</option>
+                    <option value="Developer">Full Stack Developer</option>
+                    <option value="Data Science">Data Science</option>
+                  </select>
+
+                  {/* <input
+                    id="name"
+                    className={inputStyle}
+                    placeholder="e.g. Advanced UI/UX Principles"
                     type="text"
                     value={courseData.name}
                     onChange={handleChange}
                     required
-                  />
+                  /> */}
                 </div>
                 <div>
                   <label className={labelStyle} htmlFor="category">Category</label>
-                  <select 
-                    id="category" 
+                  <select
+                    id="category"
                     className={inputStyle}
                     value={courseData.category}
                     onChange={handleChange}
@@ -242,10 +256,10 @@ const CourseForm = () => {
                 </div>
                 <div>
                   <label className={labelStyle} htmlFor="instructor">Instructor Name</label>
-                  <input 
-                    id="instructor" 
-                    className={inputStyle} 
-                    placeholder="e.g. Alex Rivers" 
+                  <input
+                    id="instructor"
+                    className={inputStyle}
+                    placeholder="e.g. Alex Rivers"
                     type="text"
                     value={courseData.instructor}
                     onChange={handleChange}
@@ -254,10 +268,10 @@ const CourseForm = () => {
                 </div>
                 <div className="md:col-span-2">
                   <label className={labelStyle} htmlFor="description">Course Description</label>
-                  <textarea 
-                    id="description" 
-                    className={inputStyle} 
-                    placeholder="Briefly describe what students will learn..." 
+                  <textarea
+                    id="description"
+                    className={inputStyle}
+                    placeholder="Briefly describe what students will learn..."
                     rows="4"
                     value={courseData.description}
                     onChange={handleChange}
@@ -278,9 +292,9 @@ const CourseForm = () => {
                   <div key={lecture.id} className="p-4 bg-slate-50 rounded-xl border border-slate-100 flex flex-col md:flex-row gap-4">
                     <div className="flex-1">
                       <label className="text-[10px] uppercase tracking-wider font-bold text-slate-400 mb-1 block">Lecture Title</label>
-                      <input 
-                        className={inputStyle} 
-                        placeholder="e.g. Introduction to Figma" 
+                      <input
+                        className={inputStyle}
+                        placeholder="e.g. Introduction to Figma"
                         type="text"
                         value={lecture.title}
                         onChange={(e) => handleLectureChange(lecture.id, 'title', e.target.value)}
@@ -289,9 +303,9 @@ const CourseForm = () => {
                     </div>
                     <div className="flex-1">
                       <label className="text-[10px] uppercase tracking-wider font-bold text-slate-400 mb-1 block">YouTube Embedded Link</label>
-                      <input 
-                        className={inputStyle} 
-                        placeholder="https://youtube.com/embed/..." 
+                      <input
+                        className={inputStyle}
+                        placeholder="https://youtube.com/embed/..."
                         type="url"
                         value={lecture.videoUrl}
                         onChange={(e) => handleLectureChange(lecture.id, 'videoUrl', e.target.value)}
@@ -299,8 +313,8 @@ const CourseForm = () => {
                       />
                     </div>
                     <div className="flex items-end pb-1">
-                      <button 
-                        className="p-2 text-slate-400 hover:text-red-500 transition-colors" 
+                      <button
+                        className="p-2 text-slate-400 hover:text-red-500 transition-colors"
                         type="button"
                         onClick={() => handleRemoveLecture(lecture.id)}
                       >
@@ -309,8 +323,8 @@ const CourseForm = () => {
                     </div>
                   </div>
                 ))}
-                <button 
-                  className="w-full py-4 border-2 border-dashed border-slate-200 rounded-xl text-slate-500 hover:text-[#1c454e] hover:border-[#1c454e] transition-all flex items-center justify-center gap-2 font-medium" 
+                <button
+                  className="w-full py-4 border-2 border-dashed border-slate-200 rounded-xl text-slate-500 hover:text-[#1c454e] hover:border-[#1c454e] transition-all flex items-center justify-center gap-2 font-medium"
                   type="button"
                   onClick={handleAddLecture}
                 >
@@ -337,11 +351,11 @@ const CourseForm = () => {
                     <div className="flex text-sm text-slate-600">
                       <label htmlFor="thumbnail-upload" className="relative cursor-pointer bg-white rounded-md font-bold text-[#1c454e] hover:underline focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#1c454e]">
                         <span>Upload a file</span>
-                        <input 
-                          id="thumbnail-upload" 
-                          name="thumbnail" 
-                          type="file" 
-                          className="sr-only" 
+                        <input
+                          id="thumbnail-upload"
+                          name="thumbnail"
+                          type="file"
+                          className="sr-only"
                           onChange={handleFileChange}
                           accept="image/*" // Restrict to image files
                         />
@@ -360,7 +374,7 @@ const CourseForm = () => {
                 {isEditMode && courseData.thumbnail && !selectedFile && (
                   <button
                     type="button"
-                    onClick={() => setCourseData(prev => ({...prev, thumbnail: ''}))}
+                    onClick={() => setCourseData(prev => ({ ...prev, thumbnail: '' }))}
                     className="text-red-500 text-sm mt-2 hover:underline"
                   >
                     Clear Current Thumbnail
@@ -371,15 +385,15 @@ const CourseForm = () => {
 
             {/* Actions */}
             <div className="flex items-center justify-end gap-4 py-6 border-t border-slate-200">
-              <button 
-                className="px-6 py-3 rounded-xl font-semibold text-slate-600 hover:bg-slate-100 transition-all" 
+              <button
+                className="px-6 py-3 rounded-xl font-semibold text-slate-600 hover:bg-slate-100 transition-all"
                 type="button"
                 onClick={() => navigate('/courses-inventory')}
               >
                 Cancel
               </button>
-              <button 
-                className="bg-[#1c454e] text-white font-bold px-10 py-3 rounded-xl hover:bg-[#15343a] transition-all shadow-md" 
+              <button
+                className="bg-[#1c454e] text-white font-bold px-10 py-3 rounded-xl hover:bg-[#15343a] transition-all shadow-md"
                 type="submit"
                 disabled={isSubmitting} // Disable button while submitting
               >
@@ -389,6 +403,49 @@ const CourseForm = () => {
           </form>
         </div>
       </main>
+
+      {/* {
+        "course":"FSD",
+      "category":"Development",
+      "description":"this is description",
+      "instructor":"Admin1",
+      "createCourse":[
+      {
+        "courseId": "abc123",
+      "day": 1,
+      "title": "Git Introduction",
+      "description": "Learn Git basics",
+      "videoUrl": "youtube link",
+      "thumbnail" :"thumbnail.img",
+      "tasks": [
+      {
+        "name": "Install Git",
+      "description": "Install git and configure username",
+      "tools": ["Git"],
+      "duration": "30 minutes"
+   }
+      ]
+      },
+       {
+        "courseId": "abc456",
+      "day": 2,
+      "title": "Git Branch",
+      "description": "Learn Git basics",
+      "videoUrl": "youtube link",
+      "thumbnail" :"thumbnail.img",
+      "tasks": [
+      {
+        "name": " Git Branch",
+      "description": "Install git and configure username",
+      "tools": ["Git"],
+      "duration": "30 minutes"
+   }
+      ]
+      }
+
+
+      ]
+} */}
     </div>
   );
 };

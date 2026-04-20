@@ -1,3 +1,4 @@
+//courseCOntroller.js
 import Course from "../models/Course.js";
 import path from "path"; // Import path for file operations
 import fs from "fs"; // Import fs for file system operations

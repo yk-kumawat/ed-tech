@@ -1,20 +1,13 @@
-import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
-import { useAuth } from '../Context/AuthContext';
+import { Navigate, Outlet } from "react-router-dom";
+import { useAuth } from "../Context/AuthContext";
 
-const PrivateRoute = ({ adminOnly }) => {
-  const { token, isAdmin, loading } = useAuth();
+const PrivateRoute = ({ adminOnly = false }) => {
+  const { user } = useAuth();
 
-  if (loading) {
-    return <div>Loading...</div>; // Or a spinner
-  }
+  if (!user) return <Navigate to="/login" />;
 
-  if (!token) {
-    return <Navigate to="/login" replace />;
-  }
-
-  if (adminOnly && !isAdmin) {
-    return <Navigate to="/" replace />; // Redirect to home or a forbidden page
+  if (adminOnly && user.role !== "admin") {
+    return <Navigate to="/dashboard" />;
   }
 
   return <Outlet />;

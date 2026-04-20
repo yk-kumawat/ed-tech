@@ -1,3 +1,4 @@
+// src\Routes\AppRoutes.jsx
 import React from 'react'
 import { Routes, Route } from "react-router-dom";
 import Home from "../Pages/Home";
@@ -11,6 +12,15 @@ import PrivateRoute from '../Components/PrivateRoute';
 
 import CourseForm from '../Pages/CourseForm';
 import CoursesInventory from '../Pages/CoursesInventory';
+import Dashboardm from '../Pages/DasboardM';
+import VideoSession from '../Pages/VideoSession';
+import AssignmentPage from '../Pages/Assignment';
+import AdminCourses from '../Pages/AdminCourses';
+import CreateCourse from '../Pages/CreateCourse';
+import CourseSessions from '../Pages/CourseSessions';
+import CreateTask from '../Pages/CreateTask';
+import CreateSession from '../Pages/CreateSession';
+
 
 const AppRoutes = () => {
   return (
@@ -18,13 +28,17 @@ const AppRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
-      
+
       {/* Protected Routes for regular users */}
       <Route element={<PrivateRoute />}>
         <Route path="/dashboard" element={<Dashboard />} />
+        {/* <Route path="/dashboardm" element={<Dashboardm/>} /> */}
         <Route path="/courses" element={<Courses />} />
         <Route path="/learning-path" element={<LearningPath />} />
         <Route path="/bookmarks" element={<Bookmarks />} />
+        <Route path="/video-session" element={<VideoSession />} />
+        <Route path="/assignment" element={<AssignmentPage />} />
+
       </Route>
 
       {/* Protected Route for Admin only */}
@@ -33,6 +47,13 @@ const AppRoutes = () => {
         <Route path="/courses-inventory/new" element={<CourseForm />} />
         <Route path="/courses-inventory/edit/:id" element={<CourseForm />} />
       </Route>
+
+      {/* Admin course management */}
+      <Route path="/admin/courses" element={<AdminCourses />} />
+      <Route path="/admin/create-course" element={<CreateCourse />} />
+      <Route path="/course/:courseId" element={<CourseSessions />} />
+      <Route path="/admin/add-session/:courseId" element={<CreateSession />} />
+      <Route path="/admin/create-task/:sessionId" element={<CreateTask />} />
     </Routes>
   )
 }

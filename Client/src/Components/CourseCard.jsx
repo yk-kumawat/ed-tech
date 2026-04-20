@@ -1,3 +1,4 @@
+// src\Components\CourseCard.jsx
 import React from "react";
 import ExImg from "../assets/ExImg.webp";
 import { AiFillSafetyCertificate } from "react-icons/ai";

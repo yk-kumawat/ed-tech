@@ -1,3 +1,4 @@
+// src\Components\ProfileHighlights.jsx
 import React from 'react'
 import ExProfile from '../assets/ExProfile.jpg'
 import awscolor from '../assets/aws-color.svg'

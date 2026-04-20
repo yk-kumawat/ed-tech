@@ -1,3 +1,4 @@
+// authRoutes.js
 import express from "express";
 import { register, login, promoteToAdmin } from "../controllers/authController.js";
 import { protect, authorizeAdmin } from "../middleware/authMiddleware.js";

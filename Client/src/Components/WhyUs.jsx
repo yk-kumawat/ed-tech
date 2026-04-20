@@ -1,3 +1,4 @@
+// src\Components\WhyUs.jsx
 import React from 'react'
 import { TiTick } from "react-icons/ti";
 import { FaCheck } from "react-icons/fa";
